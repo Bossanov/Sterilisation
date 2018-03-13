@@ -29,11 +29,11 @@ jQuery(document).ready(function() {
     /*
         Background slideshow
     */
-    $('.top-content').backstretch("assets/backgrounds/1.jpg");
-    $('.how-it-works-container').backstretch("assets/backgrounds/2.jpg");
-    $('.testimonials-container').backstretch("assets/backgrounds/1.jpg");
-    $('.call-to-action-container').backstretch("assets/backgrounds/2.jpg");
-    $('footer').backstretch("assets/backgrounds/1.jpg");
+    $('.top-content').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:60/v1520934865/cainet_dentiste_j5g546.jpg");
+    $('.how-it-works-container').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/v1520952591/dental-picks_4460x4460_yunqhu.jpg");
+    $('.testimonials-container').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/v1520956403/peter-kasprzyk-110926-unsplash_ajglmu.jpg");
+    $('.call-to-action-container').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/a_0/v1520957667/daniel-frank-201417-unsplash_zutzeq.jpg");
+    $('footer').backstretch("");
 
     $('#top-navbar-1').on('shown.bs.collapse', function(){
     	$('.top-content').backstretch("resize");
