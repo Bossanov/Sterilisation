@@ -31,8 +31,8 @@ img { max-width: 100%; }
 .section-container { margin: 0 auto; padding-bottom: 80px; }
 .section-container-gray-bg { background: #f8f8f8; }
 
-.section-container-image-bg, 
-.section-container-image-bg h2, 
+.section-container-image-bg,
+.section-container-image-bg h2,
 .section-container-image-bg h3 { color: #fff; }
 
 .section-container-image-bg .divider-1 .line { border-color: #fff; opacity: 0.8; }
@@ -75,7 +75,7 @@ img { max-width: 100%; }
     color: #fff;
     -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 }
-.btn-link-2:hover, .btn-link-2:focus, 
+.btn-link-2:hover, .btn-link-2:focus,
 .btn-link-2:active, .btn-link-2:active:focus { outline: 0; background: rgba(0, 0, 0, 0.4); color: #fff; }
 
 .btn-link-2 i { padding-left: 5px; vertical-align: middle; font-size: 20px; line-height: 20px; }
@@ -120,8 +120,8 @@ img { max-width: 100%; }
 }
 .modal-footer button:hover { outline: 0; background: #3bacae; color: #fff; }
 
-.modal-footer button:focus, .modal-footer button:active:focus, .modal-footer button.active:focus { 
-	outline: 0; background: #3bacae; color: #fff; 
+.modal-footer button:focus, .modal-footer button:active:focus, .modal-footer button.active:focus {
+	outline: 0; background: #3bacae; color: #fff;
 	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 }
 
@@ -164,7 +164,7 @@ ul.navbar-nav { font-size: 15px; color: #fff; }
 
 .navbar-brand {
 	width: 90px;
-	background: url(../img/logo.png) left center no-repeat;
+	background: url("http://res.cloudinary.com/dz83jh064/image/upload/v1521042533/Steryz_dydsua.png") left center no-repeat;
 	text-indent: -99999px;
 }
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand { margin-left: 0; }
@@ -193,8 +193,8 @@ ul.navbar-nav { font-size: 15px; color: #fff; }
 	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
 }
 
-.c-form-1-box input[type="text"], 
-.c-form-1-box textarea, 
+.c-form-1-box input[type="text"],
+.c-form-1-box textarea,
 .c-form-1-box textarea.form-control {
 	height: 50px;
     margin: 0;
@@ -212,26 +212,55 @@ ul.navbar-nav { font-size: 15px; color: #fff; }
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-.c-form-1-box textarea, 
+.c-form-10-box input[type="text"],
+.c-form-10-box textarea,
+.c-form-10-box textarea.form-control {
+  height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #fff;
+    border: 3px solid #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.c-form-1-box textarea,
 .c-form-1-box textarea.form-control { height: 100px; padding-top: 10px; padding-bottom: 10px; line-height: 30px; }
 
-.c-form-1-box input[type="text"]:focus, 
-.c-form-1-box textarea:focus, 
+.c-form-1-box input[type="text"]:focus,
+.c-form-1-box textarea:focus,
 .c-form-1-box textarea.form-control:focus {
 	outline: 0; background: #fff; border: 3px solid #42bfc2;
     -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 }
 
-.c-form-1-box input[type="text"]::-moz-placeholder, 
-.c-form-1-box textarea::-moz-placeholder, 
+.c-form-10-box textarea,
+.c-form-10-box textarea.form-control { height: 100px; padding-top: 10px; padding-bottom: 10px; line-height: 30px; }
+
+.c-form-10-box input[type="text"]:focus,
+.c-form-10-box textarea:focus,
+.c-form-10-box textarea.form-control:focus {
+  outline: 0; background: #fff; border: 3px solid #42bfc2;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+.c-form-1-box input[type="text"]::-moz-placeholder,
+.c-form-1-box textarea::-moz-placeholder,
 .c-form-1-box textarea.form-control::-moz-placeholder { color: #888; }
 
-.c-form-1-box input[type="text"]:-ms-input-placeholder, 
-.c-form-1-box textarea:-ms-input-placeholder, 
+.c-form-1-box input[type="text"]:-ms-input-placeholder,
+.c-form-1-box textarea:-ms-input-placeholder,
 .c-form-1-box textarea.form-control:-ms-input-placeholder { color: #888; }
 
-.c-form-1-box input[type="text"]::-webkit-input-placeholder, 
-.c-form-1-box textarea::-webkit-input-placeholder, 
+.c-form-1-box input[type="text"]::-webkit-input-placeholder,
+.c-form-1-box textarea::-webkit-input-placeholder,
 .c-form-1-box textarea.form-control::-webkit-input-placeholder { color: #888; }
 
 .c-form-1-box button.btn {
@@ -253,16 +282,56 @@ ul.navbar-nav { font-size: 15px; color: #fff; }
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-.c-form-1-box button.btn:hover { background: #3bacae; color: #fff; }
-.c-form-1-box button.btn:active { outline: 0; background: #3bacae; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
-.c-form-1-box button.btn:focus { outline: 0; background: #3bacae; color: #fff; }
-.c-form-1-box button.btn:active:focus, .c-form-1-box button.btn.active:focus { outline: 0; background: #3bacae; color: #fff; }
+.c-form-10-box button.btn:hover { background: #3bacae; color: #fff; }
+.c-form-10-box button.btn:active { outline: 0; background: #3bacae; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+.c-form-10-box button.btn:focus { outline: 0; background: #3bacae; color: #fff; }
+.c-form-10-box button.btn:active:focus, .c-form-10-box button.btn.active:focus { outline: 0; background: #3bacae; color: #fff; }
 
-.c-form-1-box input[type="text"].contact-error,
-.c-form-1-box textarea.contact-error {
+.c-form-10-box input[type="text"].contact-error,
+.c-form-10-box textarea.contact-error {
 	border-color: #42bfc2;
 }
 
+.c-form-10-box input[type="text"]::-moz-placeholder,
+.c-form-10-box textarea::-moz-placeholder,
+.c-form-10-box textarea.form-control::-moz-placeholder { color: #888; }
+
+.c-form-10-box input[type="text"]:-ms-input-placeholder,
+.c-form-10-box textarea:-ms-input-placeholder,
+.c-form-10-box textarea.form-control:-ms-input-placeholder { color: #888; }
+
+.c-form-10-box input[type="text"]::-webkit-input-placeholder,
+.c-form-10-box textarea::-webkit-input-placeholder,
+.c-form-10-box textarea.form-control::-webkit-input-placeholder { color: #888; }
+
+.c-form-10-box button.btn {
+  width: 100%;
+  height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #42bfc2;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 50px;
+    color: #fff;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    text-shadow: none;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.c-form-10-box button.btn:hover { background: #3bacae; color: #fff; }
+.c-form-10-box button.btn:active { outline: 0; background: #3bacae; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+.c-form-10-box button.btn:focus { outline: 0; background: #3bacae; color: #fff; }
+.c-form-10-box button.btn:active:focus, .c-form-10-box button.btn.active:focus { outline: 0; background: #3bacae; color: #fff; }
+
+.c-form-10-box input[type="text"].contact-error,
+.c-form-10-box textarea.contact-error {
+  border-color: #42bfc2;
+}
 
 /***** Features *****/
 
@@ -394,7 +463,7 @@ ul.navbar-nav { font-size: 15px; color: #fff; }
 .testimonial-list .testimonial-text { float: left; width: 83%; }
 .testimonial-list .testimonial-text p { opacity: 0.8; }
 .testimonial-list .testimonial-text a { color: #fff; border-bottom: 1px dotted #fff; }
-.testimonial-list .testimonial-text a:hover, 
+.testimonial-list .testimonial-text a:hover,
 .testimonial-list .testimonial-text a:focus { color: #fff; border: 0; }
 
 .testimonial-list .nav-tabs { border: 0; text-align: right; }

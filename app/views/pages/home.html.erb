@@ -1,5 +1,5 @@
       <!-- Top menu -->
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-no-bg" role="navigation" style="background-color: #333">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
@@ -8,25 +8,41 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Faby - Bootstrap Landing Page</a>
+          <a class="navbar-brand" href="index.html">Steryz - Stérilisation externalisée</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="scroll-link" href="#features">POURQUOI</a></li>
+            <li><a class="scroll-link" href="#features">POURQUOI?</a></li>
             <li><a class="scroll-link" href="#how-it-works">COMMENT CA MARCHE</a></li>
             <li><a class="scroll-link" href="#pricing">ABONNEMENTS</a></li>
             <li><a class="btn btn-link-3 scroll-link" href="#top-content">CONTACTEZ-NOUS</a></li>
           </ul>
         </div>
       </div>
+
+      <% if flash[:notice] %>
+        <div class="alert alert-success fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div class="alert alert-danger fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
     </nav>
 
-        <!-- Top content -->
-        <div class="top-content">
-          <div class="container">
-        <div class="row">
 
+
+    <!-- Top content -->
+    <div class="top-content">
+      <div class="container">
+        <div class="row">
           <div class="col-sm-7 text wow fadeInLeft">
             <h1>Finies les pertes de temps liées à stérilisation</h1>
             <div class="description">
@@ -39,43 +55,56 @@
               <a class="btn btn-link-2 scroll-link" href="#features">En savoir plus<i class="fa fa-lightbulb-o"></i></a>
             </div>
           </div>
+<!--           <div class="col-sm-5 c-form-1-box wow fadeInUp"> -->
+<!--           c-form-1-box fait planté simple form .... > -->
 
-          <div class="col-sm-5 c-form-1-box wow fadeInUp">
+          <div class="col-sm-5 c-form-10-box wow fadeInUp">
             <div class="c-form-1-top">
               <div class="c-form-1-top-left">
                 <h3>Contactez-nous</h3>
-                <p>Veuillez remplir le formulaire svp</p>
+                <p style="color: white">Veuillez remplir le formulaire svp</p>
               </div>
               <div class="c-form-1-top-right">
                 <i class="fa fa-envelope"></i>
               </div>
             </div>
             <div class="c-form-1-bottom">
-              <form role="form" action="assets/contact.php" method="post">
-                          <div class="form-group">
-                            <label class="sr-only" for="c-form-1-name">Nom</label>
-                              <input type="text" name="name" placeholder="Nom" class="c-form-1-name form-control" id="c-form-1-name">
-                            </div>
-                          <div class="form-group">
-                            <label class="sr-only" for="c-form-1-email">Email</label>
-                              <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email">
-                            </div>
-                            <div class="form-group">
-                              <label class="sr-only" for="c-form-1-subject">Offre</label>
-                              <input type="text" name="subject" placeholder="Quelle offre vous intéresse?" class="c-form-1-subject form-control" id="c-form-1-subject">
-                            </div>
-                            <div class="form-group">
-                              <label class="sr-only" for="c-form-1-message">Message</label>
-                              <textarea name="message" placeholder="Message" class="c-form-1-message form-control" id="c-form-1-message"></textarea>
-                            </div>
-                            <button type="submit" class="btn">Envoyer</button>
-                        </form>
+              <% @contact = Contact.new  %>
+              <%= simple_form_for @contact do |f| %>
+                <form role="form" action="assets/contact.php" method="post">
+                  <div class="form-group">
+                    <!-- <label class="sr-only" for="c-form-1-name">Nom</label> -->
+                    <%= f.input :name, :required => true, name:"text", type:"text", placeholder:"Nom", style:"width: 100%", label:false, input_html: { class:"c-form-1-email form-control" }%>
+<!--                 <input type="text" name="name" placeholder="Name" class="c-form-1-name form-control" id="c-form-1-name"> -->
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="c-form-1-email">Email</label>
+<!--                 <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email"> -->
+                    <%= f.input :mail, :required => true, type:"text", name:"email", placeholder:"Email", id:"c-form-1-email", label:false, input_html: { class:"c-form-1-email form-control" } %>
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="c-form-1-email">Email</label>
+<!--                 <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email"> -->
+                    <%= f.input :tel, :required => true, type:"text", name:"tel", placeholder:"Téléphone", id:"c-form-1-email", label:false, input_html: { class:"c-form-1-email form-control" } %>
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="c-form-1-subject">Offre</label>
+<!--                       <input type="text" name="subject" placeholder="Quelle offre vous intéresse?" class="c-form-1-subject form-control" id="c-form-1-subject"> -->
+                      <%= f.input :offer, :required => true, type:"text", name:"offer", collection:["Argent", "Or", "Platine"], prompt: "Quelle offre vous intresse ?", label:false, input_html: { class:"c-form-1-email form-control", style:"height:50px; color:#888; font-family: 'Raleway', sans-serif; font-size: 15px; font-weight: 400; background-color: #fff; text-indent: 15px;"} %>
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="c-form-1-message">Message</label>
+                      <!-- <textarea name="message" placeholder="Message" class="c-form-1-message form-control" id="c-form-1-message"></textarea> -->
+                      <%= f.input :message, :required => true, type:"text", name:"offer", placeholder:"Message", label:false, input_html: { class:"c-form-1-email form-control", style:"min-height:150px" } %>
+                  </div>
+                  <button type="submit" class="btn ">Envoyer</button>
+                </form>
+              <% end  %>
             </div>
           </div>
-
         </div>
-            </div>
-        </div>
+      </div>
+    </div>
 
         <!-- Features -->
         <div class="features-container section-container">
@@ -403,6 +432,7 @@ Envoyez-nous quelques lignes !
                     </div>
               <div class="col-sm-4 footer-contact-info wow fadeInDown">
                 <h3>Contact</h3>
+                    <p><%= image_tag "http://res.cloudinary.com/dz83jh064/image/upload/v1521042533/Steryz_dydsua.png", width:"100px" %></p>
                     <p><i class="fa fa-map-marker"></i>Eurasanté, 310 Avenue Eugène Avinée, 59120 Loos, France</p>
                     <p><i class="fa fa-phone"></i> +33 6 60 95 47 02</p>
                     <p><i class="fa fa-envelope"></i> Email: <a href="mailto:hello@gmail.com">hello@gmail.com</a></p>
