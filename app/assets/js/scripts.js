@@ -33,7 +33,7 @@ jQuery(document).ready(function() {
     $('.how-it-works-container').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/v1520952591/dental-picks_4460x4460_yunqhu.jpg");
     $('.testimonials-container').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/v1520956403/peter-kasprzyk-110926-unsplash_ajglmu.jpg");
     $('.call-to-action-container').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/a_0/v1520957667/daniel-frank-201417-unsplash_zutzeq.jpg");
-    $('footer').backstretch("");
+    // $('footer').backstretch("http://res.cloudinary.com/dz83jh064/image/upload/e_colorize:70/a_0/v1520957667/daniel-frank-201417-unsplash_zutzeq.jpg");
 
     $('#top-navbar-1').on('shown.bs.collapse', function(){
     	$('.top-content').backstretch("resize");
