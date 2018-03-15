@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(params[:contact])
+    @contact.request = request
     if @contact.deliver
       flash[:notice] = 'Merci pour votre message. Nous vous recontacterons très vite!'
       redirect_to :root
@@ -15,11 +16,4 @@ class ContactsController < ApplicationController
     end
   end
 
-
-
-  private
-
-  def send_email
-    MessageMailer.newmessage.deliver_now
-  end
 end
