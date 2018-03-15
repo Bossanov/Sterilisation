@@ -73,7 +73,7 @@
               <%= simple_form_for @contact do |f| %>
                 <form role="form" action="assets/contact.php" method="post">
                   <div class="form-group">
-                    <!-- <label class="sr-only" for="c-form-1-name">Nom</label> -->
+                    <label class="sr-only" for="c-form-1-name">Nom</label>
                     <%= f.input :name, :required => true, name:"text", type:"text", placeholder:"Nom", style:"width: 100%", label:false, input_html: { class:"c-form-1-email form-control" }%>
 <!--                 <input type="text" name="name" placeholder="Name" class="c-form-1-name form-control" id="c-form-1-name"> -->
                   </div>
@@ -83,7 +83,7 @@
                     <%= f.input :mail, :required => true, type:"text", name:"email", placeholder:"Email", id:"c-form-1-email", label:false, input_html: { class:"c-form-1-email form-control" } %>
                   </div>
                   <div class="form-group">
-                    <label class="sr-only" for="c-form-1-email">Email</label>
+                    <label class="sr-only" for="c-form-1-email">Téléphone</label>
 <!--                 <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email"> -->
                     <%= f.input :tel, :required => true, type:"text", name:"tel", placeholder:"Téléphone", id:"c-form-1-email", label:false, input_html: { class:"c-form-1-email form-control" } %>
                   </div>
