@@ -1,0 +1,6 @@
+meta_product_name: "Steryz"
+meta_title: "Steryz - Stérilisation externalisée pour cabinets dentaires"
+meta_description: "Nous sommes une startup qui permet aux dentistes d’externaliser leur processus de stérilisation."
+meta_image: "http://res.cloudinary.com/dz83jh064/image/upload/v1520934865/cainet_dentiste_j5g546.jpg"                           # Une image dans votre dossier app/assets/images/
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
+facebook_account: "@product_facebook_account"
