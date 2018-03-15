@@ -1,5 +1,5 @@
       <!-- Top menu -->
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-no-bg" role="navigation" style="background-color: #333">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
@@ -8,27 +8,43 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Faby - Bootstrap Landing Page</a>
+          <a class="navbar-brand" href="index.html">Steryz - Stérilisation externalisée</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="scroll-link" href="#features">POURQUOI</a></li>
+            <li><a class="scroll-link" href="#features">POURQUOI?</a></li>
             <li><a class="scroll-link" href="#how-it-works">COMMENT CA MARCHE</a></li>
             <li><a class="scroll-link" href="#pricing">ABONNEMENTS</a></li>
             <li><a class="btn btn-link-3 scroll-link" href="#top-content">CONTACTEZ-NOUS</a></li>
           </ul>
         </div>
       </div>
+
+      <% if flash[:notice] %>
+        <div class="alert alert-success fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div class="alert alert-danger fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
     </nav>
 
-        <!-- Top content -->
-        <div class="top-content">
-          <div class="container">
-        <div class="row">
 
+
+    <!-- Top content -->
+    <div class="top-content">
+      <div class="container">
+        <div class="row">
           <div class="col-sm-7 text wow fadeInLeft">
-            <h1>Finies les pertes de temps liées à stérilisation</h1>
+            <h1>Fini les pertes de temps liées à stérilisation</h1>
             <div class="description">
               <p class="medium-paragraph">
                 Nous sommes une société qui vous permet d'externaliser la stérilisation de vos instruments. Contactez-nous et facilitez-vous la vie !
@@ -39,43 +55,56 @@
               <a class="btn btn-link-2 scroll-link" href="#features">En savoir plus<i class="fa fa-lightbulb-o"></i></a>
             </div>
           </div>
+<!--           <div class="col-sm-5 c-form-1-box wow fadeInUp"> -->
+<!--           c-form-1-box fait planté simple form .... > -->
 
-          <div class="col-sm-5 c-form-1-box wow fadeInUp">
+          <div class="col-sm-5 c-form-10-box wow fadeInUp">
             <div class="c-form-1-top">
               <div class="c-form-1-top-left">
                 <h3>Contactez-nous</h3>
-                <p>Veuillez remplir le formulaire svp</p>
+                <p style="color: white">Veuillez remplir le formulaire svp</p>
               </div>
               <div class="c-form-1-top-right">
                 <i class="fa fa-envelope"></i>
               </div>
             </div>
             <div class="c-form-1-bottom">
-              <form role="form" action="assets/contact.php" method="post">
-                          <div class="form-group">
-                            <label class="sr-only" for="c-form-1-name">Nom</label>
-                              <input type="text" name="name" placeholder="Nom" class="c-form-1-name form-control" id="c-form-1-name">
-                            </div>
-                          <div class="form-group">
-                            <label class="sr-only" for="c-form-1-email">Email</label>
-                              <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email">
-                            </div>
-                            <div class="form-group">
-                              <label class="sr-only" for="c-form-1-subject">Offre</label>
-                              <input type="text" name="subject" placeholder="Quelle offre vous intéresse?" class="c-form-1-subject form-control" id="c-form-1-subject">
-                            </div>
-                            <div class="form-group">
-                              <label class="sr-only" for="c-form-1-message">Message</label>
-                              <textarea name="message" placeholder="Message" class="c-form-1-message form-control" id="c-form-1-message"></textarea>
-                            </div>
-                            <button type="submit" class="btn">Envoyer</button>
-                        </form>
+              <% @contact = Contact.new  %>
+              <%= simple_form_for @contact do |f| %>
+                <form role="form" action="assets/contact.php" method="post">
+                  <div class="form-group">
+                    <label class="sr-only" for="c-form-1-name">Nom</label>
+                    <%= f.input :name, :required => true, name:"text", type:"text", placeholder:"Nom", style:"width: 100%", label:false, input_html: { class:"c-form-1-email form-control" }%>
+<!--                 <input type="text" name="name" placeholder="Name" class="c-form-1-name form-control" id="c-form-1-name"> -->
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="c-form-1-email">Email</label>
+<!--                 <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email"> -->
+                    <%= f.input :mail, :required => true, type:"text", name:"email", placeholder:"Email", id:"c-form-1-email", label:false, input_html: { class:"c-form-1-email form-control" } %>
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="c-form-1-email">Téléphone</label>
+<!--                 <input type="text" name="email" placeholder="Email..." class="c-form-1-email form-control" id="c-form-1-email"> -->
+                    <%= f.input :tel, :required => true, type:"text", name:"tel", placeholder:"Téléphone", id:"c-form-1-email", label:false, input_html: { class:"c-form-1-email form-control" } %>
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="c-form-1-subject">Offre</label>
+<!--                       <input type="text" name="subject" placeholder="Quelle offre vous intéresse?" class="c-form-1-subject form-control" id="c-form-1-subject"> -->
+                      <%= f.input :offer, :required => true, type:"text", name:"offer", collection:["Urgent", "Argent", "Or", "Platine"], prompt: "Quelle offre vous intéresse ?", label:false, input_html: { class:"c-form-1-email form-control", style:"height:50px; color:#888; font-family: 'Raleway', sans-serif; font-size: 15px; font-weight: 400; background-color: #fff; text-indent: 15px;"} %>
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="c-form-1-message">Message</label>
+                      <!-- <textarea name="message" placeholder="Message" class="c-form-1-message form-control" id="c-form-1-message"></textarea> -->
+                      <%= f.input :message, :required => true, type:"text", name:"offer", placeholder:"Message", label:false, input_html: { class:"c-form-1-email form-control", style:"min-height:150px" } %>
+                  </div>
+                  <button type="submit" class="btn ">Envoyer</button>
+                </form>
+              <% end  %>
             </div>
           </div>
-
         </div>
-            </div>
-        </div>
+      </div>
+    </div>
 
         <!-- Features -->
         <div class="features-container section-container">
@@ -91,12 +120,12 @@
                   <div class="col-sm-4 features-box wow fadeInUp">
                     <div class="features-box-icon"><i class="fa fa-clock-o"></i></div>
                       <h3>Gain de temps</h3>
-                      <p>Votre assistant(e) dentaire peut vous aider et n'est plus contrainte par la lourdeur du processus de stérilisation.</p>
+                      <p>Votre assistant(e) dentaire peut vous aider et n'est plus contraint(e) par la lourdeur du processus de stérilisation.</p>
                     </div>
                     <div class="col-sm-4 features-box wow fadeInDown">
                     <div class="features-box-icon"><i class="fa fa-balance-scale"></i></div>
                       <h3>Sérénité</h3>
-                      <p>Fini les problèmes en cas de maladie ou de congés de votre assistance médicale.</p>
+                      <p>Fini les problèmes en cas de maladie ou de congés de votre assistant(e) dentaire.</p>
                     </div>
                     <div class="col-sm-4 features-box wow fadeInUp">
                     <div class="features-box-icon"><i class="fa fa-life-ring"></i></div>
@@ -154,12 +183,12 @@
                     <div class="col-sm-4 col-sm-offset-1 how-it-works-box wow fadeInUp">
                     <div class="how-it-works-number">3</div>
                       <h3>Coursier</h3>
-                      <p>Un de nos coursier vient retirer vos instruments quotidiennement.</p>
+                      <p>Un de nos coursiers vient retirer vos instruments quotidiennement.</p>
                     </div>
                     <div class="col-sm-4 col-sm-offset-2 how-it-works-box wow fadeInDown">
                     <div class="how-it-works-number">4</div>
                       <h3>Transport</h3>
-                      <p>Le transport est assuré dans une de nos camionnette agréées ONCD.</p>
+                      <p>Le transport est assuré dans une de nos camionnettes agréées DASRI.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -189,20 +218,39 @@
                   <div class="col-sm-12 pricing section-description wow fadeIn">
                       <h2>Abonnements</h2>
                       <div class="divider-1"><div class="line"></div></div>
-                      <p class="medium-paragraph">Ci-dessous vous trouverez les abonnements que nous proposons. Choisissez celui qui convient à le mieux vos besoins.</p>
+                      <p class="medium-paragraph">Ci-dessous vous trouverez les abonnements que nous proposons. Choisissez celui qui convient le mieux à vos besoins.</p>
                   </div>
               </div>
               <div class="row">
-                  <div class="col-sm-4 pricing-box wow fadeInUp">
-                    <div class="pricing-box-inner">
-                      <div class="pricing-box-price"><span>€ </span><strong>1'500</strong><span> / mois</span></div>
+                    <div class="col-sm-3 pricing-box wow fadeInUp">
+                      <div class="pricing-box-inner">
+                      <!-- <div class="pricing-box-price"><span>€ </span><strong>1'500</strong><span> / mois</span></div> -->
+                        <h3>Urgent</h3>
+                        <h4>Un imprévu ?</h4>
+                        <div class="pricing-box-features">
+                          <ul>
+                            <li>1 jour</li>
+                            <li>1 fauteuil</li>
+                            <li>Pas d'engagement</li>
+                            <li>Faire face à une urgence</li>
+                            <li>1 seul Dépôt/Retrait</li>
+                          </ul>
+                        </div>
+                        <div class="pricing-box-sign-up">
+                          <a class="btn btn-link-1 scroll-link" href="#top-content">Contactez-nous<i class="fa fa-angle-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3 pricing-box wow fadeInUp">
+                      <div class="pricing-box-inner">
+                      <!-- <div class="pricing-box-price"><span>€ </span><strong>1'500</strong><span> / mois</span></div> -->
                         <h3>Argent</h3>
-                        <h4>Testez notre solution</h4>
+                        <h4>Testez</h4>
                         <div class="pricing-box-features">
                           <ul>
                             <li>1 mois</li>
                             <li>1 fauteuil</li>
-                            <li>Aucune obligation de renouvellement</li>
+                            <li>Pas d'engagement</li>
                             <li>Le plus flexible</li>
                             <li>Retrait/Dépôt quotidien</li>
                           </ul>
@@ -212,11 +260,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-4 pricing-box pricing-box-best wow fadeInDown">
+                    <div class="col-sm-3 pricing-box pricing-box-best wow fadeInDown">
                       <div class="pricing-box-inner">
-                      <div class="pricing-box-price"><span>€ </span><strong>1'200</strong><span> / mois</span></div>
+                      <!-- <div class="pricing-box-price"><span>€ </span><strong>1'200</strong><span> / mois</span></div> -->
                         <h3>Or</h3>
-                        <h4>Convaincu ? Abonnez-vous</h4>
+                        <h4>Abonnez-vous</h4>
                         <div class="pricing-box-features">
                           <ul>
                             <li>Abonnement d'1 an</li>
@@ -231,11 +279,11 @@
                         </div>
                     </div>
                     </div>
-                    <div class="col-sm-4 pricing-box wow fadeInUp">
+                    <div class="col-sm-3 pricing-box wow fadeInUp">
                       <div class="pricing-box-inner">
-                      <div class="pricing-box-price"><span>€ </span><strong>1'000</strong><span> / mois</span></div>
+                      <!-- <div class="pricing-box-price"><span>€ </span><strong>1'000</strong><span> / mois</span></div> -->
                         <h3>Platine</h3>
-                        <h4>Convaincu et  économe ?</h4>
+                        <h4>Le moins cher</h4>
                         <div class="pricing-box-features">
                           <ul>
                             <li>Abonnement d'1 an</li>
@@ -285,7 +333,7 @@
                           </div>
                           <div class="testimonial-text">
                                     <p>
-                                      "5 ans. 5 ans que je me dis tous les jours: "Isabelle, lance toi et crée une société de stérilisation externalisée. Antoine et Aurélien l'ont fait avant moi. Tant pis! Mais en tous cas, ça me facile clairement la vie au quotidien."<br>
+                                      "5 ans. 5 ans que je me dis tous les jours: "Isabelle, lance toi et crée une société de stérilisation externalisée. Antoine et Aurélien l'ont fait avant moi. Tant pis! Mais en tous cas, ça me facilitera clairement la vie au quotidien."<br>
                                     </p>
                                   </div>
                         </div>
@@ -295,7 +343,7 @@
                           </div>
                           <div class="testimonial-text">
                                     <p>
-                                      "Mon assistante médical va pouvoir m'aider 100% de son temps et ne plus se concentrer sur les tâches relatives à la stérilisation. C'est très bien, aussi bien pour elle que pour moi !"<br>
+                                      "Mon assistante dentaire va pouvoir m'aider 100% de son temps et ne plus se concentrer sur les tâches relatives à la stérilisation. C'est très bien, aussi bien pour elle que pour moi !"<br>
                                     </p>
                                   </div>
                         </div>
@@ -395,7 +443,7 @@ Envoyez-nous quelques lignes !
               <div class="col-sm-4 footer-about wow fadeInUp">
                 <h3>A propos</h3>
                 <p>
-                  Fort d'une experience cumulée de 60 ans en odontologie, nous savons que la stérilisation est un problème auxquels tous les praticiens doivent se confronter. Nous essayons, à notre échelle, de rendre votre profession moins contraingante.
+                  Fort d'une experience cumulée de 60 ans en odontologie, nous savons que la stérilisation est un problème auquel tous les praticiens doivent se confronter. Nous essayons, à notre échelle, de rendre votre profession moins contraignante.
                 </p>
                 <p>
                         <a class="scroll-link" href="#about-us">Notre équipe</a>
@@ -403,9 +451,10 @@ Envoyez-nous quelques lignes !
                     </div>
               <div class="col-sm-4 footer-contact-info wow fadeInDown">
                 <h3>Contact</h3>
-                    <p><i class="fa fa-map-marker"></i>Eurasanté, 310 Avenue Eugène Avinée, 59120 Loos, France</p>
+                    <p><%= image_tag "http://res.cloudinary.com/dz83jh064/image/upload/v1521042533/Steryz_dydsua.png", width:"100px" %></p>
+                    <p><i class="fa fa-map-marker"></i>Maison Dentaire, 55 rue Salvador Allende, 59120 Loos</p>
                     <p><i class="fa fa-phone"></i> +33 6 60 95 47 02</p>
-                    <p><i class="fa fa-envelope"></i> Email: <a href="mailto:hello@gmail.com">hello@gmail.com</a></p>
+                    <p><i class="fa fa-envelope"></i> Email: <a href="mailto:hellosteryz@gmail.com">hellosteryz@gmail.com</a></p>
                     </div>
                     <div class="col-sm-4 footer-social wow fadeInUp">
                       <h3>Votre avis nous intéresse</h3>
